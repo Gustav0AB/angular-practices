@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ItemComponent } from './item/item.component'
+import { ItemComponent } from './item/item.component';
+import { Todo } from '../data/data'
 
 export interface Item {
   description: string;
@@ -21,14 +22,9 @@ export class AppComponent {
 
   filter: "all" | "active" | "done" = "all";
 
-  allItems = [
-    { description: "eat", done: true },
-    { description: "sleep", done: false },
-    { description: "play", done: false },
-    { description: "laugh", done: false },
-  ];
+  allItems = new Array<Item>;
 
-  get items() {
+  get tasks() {
     if (this.filter === "all") {
       return this.allItems;
     }
