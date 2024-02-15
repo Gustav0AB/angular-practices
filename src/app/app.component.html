@@ -1,27 +1,53 @@
-<div class="main">
-  <h1>My To Do List</h1>  
+<div class="container todo-list">
+  <h2 class="section-title">To Do List (Angular)</h2>  
   
-  <label for="addItemInput">What would you like to do today?</label>
+  <div class="todo-list__add">
+    <label for="addItemInput">What would you like to do today?</label>
 
-  <input
-    #newItem
-    placeholder="add an item"
-    (keyup.enter)="addItem(newItem.value); newItem.value = ''"
-    class="lg-text-input"
-    id="addItemInput" />
+    <input
+      #newItem
+      placeholder="add an item"
+      (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+      class="lg-text-input"
+      id="addItemInput" 
+      maxlength="30"/>
 
-  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
-
-  <h2>
-    {{items.length}}
-    <span *ngIf="items.length === 1; else elseBlock">item</span>
-    <ng-template #elseBlock>items</ng-template>
-  </h2>
+      <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+  </div>
   
-  <ul>
-    <li *ngFor="let i of items">
-      <app-item (remove)="remove(i)" [item]="i"></app-item>
-    </li>
-  </ul>
+  <div class="todo-list__menu">
+    <button
+      class="btn btn-menu"
+      [class.active]="filter == 'all'"
+      (click)="filter = 'all'">
+      All
+    </button>
+  
+    <button
+      class="btn btn-menu"
+      [class.active]="filter == 'active'"
+      (click)="filter = 'active'">
+      To Do
+    </button>
+  
+    <button
+      class="btn btn-menu"
+      [class.active]="filter == 'done'"
+      (click)="filter = 'done'">
+      Done
+    </button>
+  </div>
 
+  <div class="todo-list__list-elements">
+    <h2>
+      {{tasks.length}}
+      <span *ngIf="tasks.length === 1; else elseBlock">item</span>
+      <ng-template #elseBlock>items</ng-template>
+    </h2>
+    
+    <ul>
+      <li *ngFor="let i of tasks">
+        <app-item (remove)="remove(i)" [item]="i"></app-item>
+      </li>
+    </ul>
 </div>
