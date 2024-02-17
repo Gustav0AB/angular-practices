@@ -2,7 +2,7 @@
     <input
       [id]="item.description"
       type="checkbox"
-      (change)="item.done = !item.done"
+      (change)="markasdone($event)"
       [checked]="item.done" />
       
     <label [for]="item.description">{{item.description}}</label>
@@ -14,7 +14,7 @@
     <!-- This section shows only if user clicks Edit button -->
     <div *ngIf="editable">
       <input
-        class="sm-text-input"
+        class="sm-text-input edit-input"
         placeholder="edit item"
         [value]="item.description"
         #editedItem

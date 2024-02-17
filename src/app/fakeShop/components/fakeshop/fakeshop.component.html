@@ -1,0 +1,12 @@
+<div class="container">
+    
+    <h3>Fake shop</h3>
+
+    <div >
+        <ul>
+            <li *ngFor="let product of products">
+                <app-product [product]="product"/>
+            </li>
+        </ul>
+    </div>
+</div>
