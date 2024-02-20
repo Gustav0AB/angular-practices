@@ -1,2 +1,27 @@
-<app-todo-list/>
-<app-fakeshop/>
+<!--app-todo-list/>
+<app-fakeshop/-->
+
+<div class="container">
+    <h2>Hello there! setup your test to the API</h2>
+    <p>we will use <a href="crudcrud.com" target="_blank">crudcrud.com</a></p>
+    <p>go to the site and copy the red part as in the example below</p>
+    <p class="example">https://crudcrud.com/api/<span>d447f70f01324be7acd9cc0d7f830867</span></p>
+    <div class="add-token-api">
+        <label for="addAPI">add your token</label>
+    
+        <div>
+            <input
+            #newItem
+            type="text"
+            (keyup.enter)="addYourToken(newItem.value); newItem.value = ''"
+            id="addAPI" />
+  
+            <button (click)="addYourToken(newItem.value)">Add</button>
+        </div>
+    </div>
+    
+    <button (click)="generate()">Generate Data</button>
+</div>
+
+<app-add-user></app-add-user>
+<app-display-users></app-display-users>

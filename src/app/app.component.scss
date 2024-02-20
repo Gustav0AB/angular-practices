@@ -1,0 +1,14 @@
+.add-token-api{
+    div{
+        display: flex;
+        > *{
+            flex:0 1;
+        }
+    }
+}
+
+.example{
+    span{
+        color: #ff0000;
+    }
+}

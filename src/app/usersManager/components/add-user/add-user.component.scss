@@ -1,0 +1,42 @@
+.form{
+    width: 50%;
+    border: 1px solid #aaaaac;
+    border-radius: 0.375rem;
+    padding: 40px 30px;
+    form{
+        display: flex;
+        flex-direction: column;
+        > div{
+            display: flex;
+            flex-direction: column;
+
+        }
+    }
+
+    input[type="date"] {
+        cursor: pointer;
+        appearance: none;
+        color: #1D1D1D;
+        font-family: “Helvetica”, arial, sans-serif;
+        font-size: 18px;
+        border:1px solid #ECF0F1;
+        background:#ECF0F1;
+        padding: 4px;
+        display: inline-block;
+        visibility: visible;
+        width: 140px;
+        }
+        &:focus {
+        color: #495057;
+        background-color: #FFFFFF;
+        border-color: #80BDFF;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    ::-webkit-calendar-picker-indicator{
+        background-color: #fff;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+}

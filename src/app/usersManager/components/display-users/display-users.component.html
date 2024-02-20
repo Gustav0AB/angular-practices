@@ -1,0 +1,56 @@
+<div class="table">
+  <div class="table--content">
+    <div class="table--header-box">
+      <h3>Table Title</h3>
+      <div class="table--header-options">
+        <div class="search">
+          <input type="text"
+            [(ngModel)]="userSearchKey" 
+            (ngModelChange)="userSearch()">
+          <button>Buscar</button>
+        </div>
+        <div class="table--header-options-wrapper">
+          <button>Agregar Usuario</button>
+          <button>Reload</button>
+        </div>
+      </div>
+    </div>
+    <div class="table--content-box">
+      <div class="table--content-box--filters">
+        <h4>Filtros: </h4>
+        <button     
+          [class.active]="filter == 'active'"
+          (click)="filter = 'all'; userFilter();">Todos</button>
+        <button         
+          [class.active]="filter == 'active'"
+          (click)="filter = 'active'; userFilter();">Activos</button>
+        <button 
+          [class.active]="filter == 'duedate'"
+          (click)="filter = 'duedate'; userFilter();">Vencidos</button>
+        <button 
+        [class.active]="filter == 'duedate-soon'"
+        (click)="filter = 'duedate-soon'; userFilter();">Vencen pronto</button>
+      </div>
+      <table>
+        <thead>
+          <tr >
+            <th *ngFor="let header of tableHeaders">{{header}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filterUsers">
+            <td>{{user.name}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.service}}</td>
+            <td>$ {{user.amount}}</td>
+            <td>{{user.duedate}}</td>
+            <td><span class="card {{user.status | lowercase}}">{{user.status}}</span></td>
+            <td>
+              <button (click)="userPayment(user)">Pagar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
