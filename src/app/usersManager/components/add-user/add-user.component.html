@@ -9,30 +9,36 @@
             <input id="last-name" type="text" formControlName="lastName">
         </div>
         <div>
-            <label for="last-name">Apellido: </label>
-            <input id="last-name" type="text" formControlName="lastName">
+            <label for="birthday">Fecha de nacimiento: </label>
+            <input id="birthday" type="date" formControlName="birthday">
         </div>
         <div>
-            <label for="last-name">Apellido: </label>
-            <input id="last-name" type="text" formControlName="lastName">
+            <label for="phone-number">Numero de telefono: </label>
+            <input id="phone-number" type="text" formControlName="phoneNumber">
         </div>
-        <div formArrayName="services">
+        <div>
             <h2>Services</h2>
-            <select #selectServiceID>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
         
-            <button type="button" (click)="addService(selectServiceID.value)">+ Add another service</button>
+            <button type="button" (click)="addService()">+ Add another service</button>
             
-            <div *ngFor="let service of services.controls;">
-                <div>{{service}}</div>
+            <div formArrayName="services" *ngFor="let service of services.controls; let i = index;">   
+                <div [formGroupName]="i">
+                    
+                    <select name="name-{{ i }}" id="name-{{ i }}" formControlName="name">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+
+                    <input type="text" id="amount-{{ i }}"  formControlName="amount">
+                </div>
             </div>
         </div>
       
         <p>Complete the form to enable button.</p>
+        
         <button type="submit" [disabled]="!userForm.valid">Submit</button>
       </form>
 </div>
+

@@ -20,4 +20,8 @@ export interface UserInformation{
     phoneNumber: String
 };
 
+export interface Services{
+    id: Number,
+    name: String
+};
 // amount, service, status

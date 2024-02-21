@@ -1,6 +1,7 @@
 import { JsonPipe, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { testServices } from '../../test/data';
 
 @Component({
   selector: 'app-add-user',
@@ -11,9 +12,9 @@ import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class AddUserComponent {
   
-  serviceValue = '';
-
   constructor(private formBuilder: FormBuilder) {}
+
+  serviceTest = testServices;
 
   userForm = this.formBuilder.group({
     name: ['', Validators.required],
@@ -21,15 +22,25 @@ export class AddUserComponent {
     phoneNumber: [''],
     birthday: [''],
     image: [''],
-    services: this.formBuilder.array([this.formBuilder.control('')]),
+    services: this.formBuilder.array([]),
   });
 
   get services() {
     return this.userForm.get('services') as FormArray;
   }
   
-  addService(value: string) {
-    this.services.push(value);
+  addService() {
+    const servicesFormGroup = this.formBuilder.group({
+      name: '',
+      amount:  ''
+    });
+
+    //add this.formBuilder.control('') just to add 1 input element
+    this.services.push(servicesFormGroup);
+  }
+
+  removeService(index: number){
+
   }
 
   onSubmit(){

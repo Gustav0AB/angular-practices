@@ -209,3 +209,18 @@ export const users = [
         "status": "Active"
     }
 ];
+
+export const testServices = [
+    {
+        id: 1,
+        name: "Payment Manager"
+    },
+    {
+        id: 2,
+        name: "Finance Manager"
+    },
+    {
+        id: 3,
+        name: "Gym"
+    }
+];
