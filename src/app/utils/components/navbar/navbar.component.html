@@ -1,0 +1,14 @@
+<nav>
+    <div class="nav-wrapper">
+      <!--a routerLink="#" class="brand-logo">Logo</a-->
+      <ul class="navbar">
+        <li class="nav-item"><a routerLink="/"><span>Home</span></a></li>
+        <li class="nav-item"><a routerLink="/practices/todo"><span>Todo List</span></a></li>
+        <li class="nav-item"><a routerLink="/practices/fakeshop"><span>FakeShop</span></a></li>
+        <li class="nav-item"><a routerLink="/user-manager"><span>User Manager</span></a></li>
+        <li class="nav-item"><a routerLink="/add-user"><span>Add User</span></a></li>
+        <li class="nav-item" *ngIf="!userLoginOn"><a routerLink="/login"><span>Login</span></a></li>
+        <li class="nav-item" *ngIf="userLoginOn"><a routerLink="/"><span>Logout</span></a></li>
+      </ul>
+    </div>
+  </nav>

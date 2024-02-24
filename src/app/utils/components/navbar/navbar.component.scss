@@ -1,0 +1,32 @@
+nav{
+    position: fixed;
+    background-color: #452d93;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    .nav-wrapper{
+        display: flex;
+        justify-content: center;
+        .navbar{
+            display: flex;    
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            .nav-item{
+                a {
+                    text-decoration: none; 
+                    span{
+                        display: block;
+                        padding: 10px 15px;
+                        background-color: #452d93;
+                        color: #fff;
+                    }
+                }
+                :hover{
+                    background-color: lighten($color: #452d93, $amount: 5)
+                }
+            }
+        }
+    }
+}

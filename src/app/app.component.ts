@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { TodoListComponent } from './todo/components/todo-list/todo-list.component';
-import { FakeshopComponent } from './fakeShop/components/fakeshop/fakeshop.component'
-import { DisplayUsersComponent } from './usersManager/components/display-users/display-users.component';
-import { AddUserComponent } from './usersManager/components/add-user/add-user.component';
+import { HeaderComponent } from './utils/components/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, TodoListComponent, FakeshopComponent, DisplayUsersComponent,AddUserComponent],
+  imports: [RouterOutlet, HeaderComponent, CommonModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
